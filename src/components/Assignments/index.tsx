@@ -1,24 +1,24 @@
 import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
 
-type AssignmentProps = {assignmentList: string[]|null}
-export function Assignments(prop:AssignmentProps) {
+type AssignmentsProps = {assignmentList: string[]|null}
+export function Assignments(prop:AssignmentsProps) {
   return (
     <section className={styles.assignments}>
       <header className={styles.header}>
         <div>
           <p>Created Assignments</p>
-          <span>1</span>
+          <span>{prop.assignmentList?.length}</span>
         </div>
 
         <div>
           <p className={styles.textPurple}>Completed Assignments</p>
-          <span>1 of 1</span>
+          <span>1 of {prop.assignmentList?.length}</span>
         </div>
       </header>
 
       <div className={styles.list}>
-        <Assignment />
+        <Assignment assignmentList={prop.assignmentList}/>
       </div>
     </section>
   );

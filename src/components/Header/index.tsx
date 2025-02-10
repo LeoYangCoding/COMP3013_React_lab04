@@ -9,7 +9,7 @@ export function Header(prop:HeaderProps) {
 
   const [inputAssignment, setInputAssignment] = useState(""); 
 
-  function handleSubmit(e){
+  function handleSubmit(e:any){
     e.preventDefault();
 
     if(prop.assignmentList){
