@@ -6,7 +6,8 @@ import { Assignments } from "./components/Assignments";
 
 
 function App() {
-  const [assignmentList, setAssignmentList] = useState<string|null>(null); 
+  const [assignmentList, setAssignmentList] = useState<string[]|null>(null); 
+  // const assignmentList = {};
   return (
     <>
 

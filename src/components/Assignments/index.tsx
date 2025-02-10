@@ -1,7 +1,8 @@
 import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
 
-export function Assignments() {
+type AssignmentProps = {assignmentList: string[]|null}
+export function Assignments(prop:AssignmentProps) {
   return (
     <section className={styles.assignments}>
       <header className={styles.header}>
