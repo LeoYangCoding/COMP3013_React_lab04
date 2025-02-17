@@ -8,13 +8,13 @@ type Props = { setAssignments:React.Dispatch<React.SetStateAction<TAssignment[]>
 export function Header({setAssignments}:Props) {
 
   const [assignment, setAssignment] = useState(""); 
-  const handleClick = () => {
+  const handleSubmit = (e:React.FormEvent) => {
     // setAssignments((assignmentsList)=>{       //Automatic import the data in the assignment claimed in the App.tsx
     //   const newAssignmentList = [];
     //   assignmentsList.forEach(assignment => newAssignmentList.push(assignment))
     //   newAssignmentList.push(newAssignment)
     // });
-
+    e.preventDefault();
     setAssignments((prev)=>[...prev,{id:String(prev.length+1), task: assignment, completed:false}] );
 
 
@@ -43,10 +43,9 @@ export function Header({setAssignments}:Props) {
     <header className={styles.header}>
       {/* This is simply to show you how to use helper functions */}
       <h1>{uppercase("bcit")} Assignment Tracker</h1>
-      <form className={styles.newAssignmentForm} > 
-        {/* onSubmit = {handleSubmit} */}
+      <form className={styles.newAssignmentForm}  onSubmit = {handleSubmit} > 
         <input placeholder="Add a new assignment" type="text" value={assignment} onChange={(e) => setAssignment(e.target.value)}/>
-        <button disabled={!assignment} onClick={handleClick} >
+        <button disabled={!assignment} >
           Create <AiOutlinePlusCircle size={20} />
         </button>
       </form>

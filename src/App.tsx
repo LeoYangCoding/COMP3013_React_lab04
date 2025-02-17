@@ -7,7 +7,7 @@ import {TAssignment} from "./types"
 
 
 function App() {
-  const [assignments, setAssignments] = useState<TAssignment[]>([{id:"1", task: "ts", completed:false}]); //or <TAssignment[]> can be replaced by Array<TAssignment>
+  const [assignments, setAssignments] = useState<TAssignment[]>([]); //or <TAssignment[]> can be replaced by Array<TAssignment>
   // const assignments = {};
   return (
     <>

@@ -20,7 +20,7 @@ export function Assignments({assignments}:Props) {
       </header>
 
       <div className={styles.list}>
-        <Assignment assignments={assignments}/>
+        {assignments.map(assignment  => <Assignment title={assignment.task}/>)}
       </div>
     </section>
   );
