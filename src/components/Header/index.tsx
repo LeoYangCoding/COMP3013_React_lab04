@@ -2,8 +2,9 @@ import {useState} from "react"
 import styles from "./header.module.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { uppercase } from "../../helpers/stringHelpers";
+import {TAssignment} from "../../types"
 
-type HeaderProps = {assignmentList: string[]|null, setAssignmentList:React.Dispatch<React.SetStateAction<string[] | null>>}
+type HeaderProps = {assignmentList: string[]|null, setAssignmentList:React.Dispatch<React.SetStateAction<TAssignment[]>>}
 export function Header(prop:HeaderProps) {
 // export function Header() {
 
