@@ -1,1 +1,1 @@
-export type TAssignment = {id:string; type: string; completed: boolean;}
+export type TAssignment = {id:string; task: string; completed: boolean;}
