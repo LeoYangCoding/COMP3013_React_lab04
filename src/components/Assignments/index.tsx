@@ -3,8 +3,15 @@ import styles from "./assignments.module.css";
 import {TAssignment} from "../../types"
 
 
-type Props = {assignments: TAssignment[]}
+type Props = {
+  assignments: TAssignment[]
+};
 export function Assignments({assignments}:Props) {
+  const countCompleted = (assignments:TAssignment[]) =>{
+    return assignments.filter(item => item.completed ===true).length;
+  }
+  const completedAssignmentNumber = countCompleted(assignments)
+  console.log(assignments)
   return (
     <section className={styles.assignments}>
       <header className={styles.header}>
@@ -15,13 +22,14 @@ export function Assignments({assignments}:Props) {
 
         <div>
           <p className={styles.textPurple}>Completed Assignments</p>
-          <span>1 of {assignments?.length}</span>
+          <span>{completedAssignmentNumber} of {assignments?.length}</span>
         </div>
       </header>
 
       <div className={styles.list}>
         {assignments.map(assignment  => <Assignment title={assignment.task}/>)}
       </div>
+
     </section>
   );
 }

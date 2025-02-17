@@ -8,6 +8,8 @@ type Props = { setAssignments:React.Dispatch<React.SetStateAction<TAssignment[]>
 export function Header({setAssignments}:Props) {
 
   const [assignment, setAssignment] = useState(""); 
+
+
   const handleSubmit = (e:React.FormEvent) => {
     // setAssignments((assignmentsList)=>{       //Automatic import the data in the assignment claimed in the App.tsx
     //   const newAssignmentList = [];
@@ -16,9 +18,10 @@ export function Header({setAssignments}:Props) {
     // });
     e.preventDefault();
     setAssignments((prev)=>[...prev,{id:String(prev.length+1), task: assignment, completed:false}] );
-
-
+    setAssignment("")
   }
+
+
 
   // if(prop.assignments){
     
