@@ -1,30 +1,45 @@
 import styles from "./assignment.module.css";
 import { TbTrash } from "react-icons/tb";
+import { TAssignment } from "../../types";
 
-type Props = {title: string }
-export function Assignment({title}:Props) {
+type Props = {
+  assignment: TAssignment;
+  setAssignments: React.Dispatch<React.SetStateAction<TAssignment[]>>
+}
+export function Assignment({assignment, setAssignments}:Props) {
+  
+
+
   const toggleComplete = () => {
     const assignmentToChange = 
     setAssignments((prev) => [...prev]);
   }
- 
-  const deleteAssignment = () => {
 
-    setAssignments((prev) => [...prev]);
-  }    
+  const completeSate = (completed:boolean) => {
+    const completedCss = "";
+
+
+  }
+ 
+  // const deleteAssignment = () => {
+
+  //   setAssignments((prev) => [...prev]);
+  // }    
 
   return (
     <div className={styles.assignment}>
 
 
-    <button onClick={toggleComplete} className={styles.checkContainer}> 
+    <button key={assignment.task} onClick={toggleComplete} className={styles.checkContainer} > 
       <div /> 
     </button>
 
-    <p>{title}</p>
+    {/* <p className={styles.textCompleted} >{assignment.task}</p> */}
+    <p className={assignment.completed ? "{styles.textCompleted}" : ""}>{assignment.completed ? "{styles.textCompleted}" : ""}</p>
 
     
-    <button onClick={deleteAssignment} className={styles.deleteButton}>
+    <button className={styles.deleteButton}>
+      {/* onClick={deleteAssignment}  */}
        <TbTrash size={20} /> 
        </button>
 
