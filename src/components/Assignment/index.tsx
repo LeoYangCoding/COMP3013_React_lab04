@@ -10,36 +10,30 @@ export function Assignment({assignment, setAssignments}:Props) {
   
 
 
-  const toggleComplete = () => {
-    const assignmentToChange = 
+  const toggleComplete = (key:string) => {
     setAssignments((prev) => [...prev]);
   }
 
-  const completeSate = (completed:boolean) => {
-    const completedCss = "";
-
-
-  }
+  
  
-  // const deleteAssignment = () => {
+  const deleteAssignment = (id: string) => {
 
-  //   setAssignments((prev) => [...prev]);
-  // }    
+    setAssignments((prev) => prev.filter((item)=>item.id !==id));
+  };    
 
   return (
     <div className={styles.assignment}>
 
 
-    <button key={assignment.task} onClick={toggleComplete} className={styles.checkContainer} > 
+    <button key={assignment.id} onClick={()=>toggleComplete(assignment.id)} className={styles.checkContainer} > 
       <div /> 
     </button>
 
-    {/* <p className={styles.textCompleted} >{assignment.task}</p> */}
-    <p className={assignment.completed ? "{styles.textCompleted}" : ""}>{assignment.completed ? "{styles.textCompleted}" : ""}</p>
+    <p className={assignment.completed ? `${styles.textCompleted}` : ""}>{assignment.task}</p>
 
     
-    <button className={styles.deleteButton}>
-      {/* onClick={deleteAssignment}  */}
+    <button key={assignment.id} onClick={()=>deleteAssignment(assignment.id)}  className={styles.deleteButton}>
+      
        <TbTrash size={20} /> 
        </button>
 
